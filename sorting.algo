@@ -1,0 +1,23 @@
+FUNCTION insertionSort(arr) : ARRAY;
+VAR
+    i, j, currentElement;
+BEGIN
+    FOR i FROM 1 TO arr.length - 1 DO
+        currentElement := arr[i];
+        j := i;
+        WHILE (j > 0 AND arr[j - 1] > currentElement) DO
+            arr[j] := arr[j - 1];
+            j := j - 1;
+        END_WHILE
+        arr[j] := currentElement;
+    END_FOR
+    RETURN arr;
+END
+
+ALGORITHM sortNumberedList
+VAR
+    arrayToSort : ARRAY := [3, 1, 4, 1, 5, 9, 2, 6];
+BEGIN
+    arrayToSort := insertionSort(arrayToSort);
+    Write(arrayToSort); // sorted array list
+END 
